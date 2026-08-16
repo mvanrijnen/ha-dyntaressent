@@ -1,0 +1,13 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Dynamische Tarieven Essent",
+        "description": "Add the Essent dynamic tariffs. No account or API key is required — click Submit to start."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "DynTarEssent is already configured."
+    }
+  }
+}
