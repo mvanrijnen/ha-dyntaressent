@@ -5,6 +5,14 @@ Alle noemenswaardige wijzigingen aan dit project worden hier vastgelegd.
 Het formaat is gebaseerd op [Keep a Changelog](https://keepachangelog.com/nl/1.1.0/),
 en dit project volgt [Semantic Versioning](https://semver.org/lang/nl/).
 
+## [1.4.1] - 2026-08-17
+
+### Fixed
+- Gas toont weer de **daadwerkelijk op dat moment geldende prijs** (bijv. vóór 06:00 de
+  nog lopende gasdag), in plaats van alvast de headline-prijs van de nieuwe gasdag zoals
+  in 1.4.0. De gasprijs verspringt om 06:00; de sensor volgt de op dat moment geldende
+  gasdag. Draait de gasdag-benadering uit 1.4.0 terug.
+
 ## [1.4.0] - 2026-08-17
 
 ### Fixed

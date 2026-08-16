@@ -16,8 +16,9 @@ De integratie levert **gisteren, vandaag en morgen** (24 uur-slots per dag) voor
 inkoopvergoeding + energiebelasting, inclusief 21% btw. De prijzen van morgen komen 's
 middags binnen (day-ahead, doorgaans tussen 13:00 en 16:00).
 
-**Stroom** is per uur; **gas** is een dagprijs die de Nederlandse **gasdag** (06:00–06:00)
-volgt. De gas-sensoren tonen daarom de gasdag-prijs van de dag, gelijk aan wat essent.nl toont.
+**Stroom** varieert per uur. **Gas** volgt de Nederlandse **gasdag** (06:00–06:00): de
+prijs verspringt om 06:00 en is daartussen constant. De sensoren tonen steeds de op dat
+moment daadwerkelijk geldende prijs (vóór 06:00 dus de nog lopende gasdag).
 
 ## Ophaalschema
 
