@@ -19,7 +19,7 @@ from homeassistant.util import dt as dt_util
 from .const import ELECTRICITY, GAS
 from .coordinator import EnergyData, EssentConfigEntry, Slot
 from .entity import EssentEntity
-from .prices import feed_in_value, feed_in_value_ex, slot_at as _slot_at
+from .prices import effective_view, feed_in_value, feed_in_value_ex, slot_at as _slot_at
 
 # Prijs-accessor: haalt uit een uur-tarief de gewenste waarde.
 type PriceFn = Callable[[Slot], float]
@@ -166,7 +166,8 @@ class EssentPriceSensor(EssentEntity, SensorEntity):
         data = self._data
         if data is None:
             return None
-        value = self.entity_description.value_fn(data, dt_util.now(), self._price)
+        data, now = effective_view(data, self._energy, dt_util.now())
+        value = self.entity_description.value_fn(data, now, self._price)
         return None if value is None else round(value, PRICE_PRECISION)
 
     @property
@@ -174,7 +175,8 @@ class EssentPriceSensor(EssentEntity, SensorEntity):
         data = self._data
         if data is None or self.entity_description.attr_fn is None:
             return None
-        return self.entity_description.attr_fn(data, dt_util.now(), self._price)
+        data, now = effective_view(data, self._energy, dt_util.now())
+        return self.entity_description.attr_fn(data, now, self._price)
 
 
 # --- Teruglever-sensoren (alleen elektra) -----------------------------------
@@ -325,7 +327,8 @@ class EssentComponentSensor(EssentEntity, SensorEntity):
         data = self._data
         if data is None:
             return None
-        slot = _slot_at(data.today, dt_util.now())
+        data, now = effective_view(data, self._energy, dt_util.now())
+        slot = _slot_at(data.today, now)
         if slot is None:
             return None
         return round(self.entity_description.value_fn(slot), PRICE_PRECISION)

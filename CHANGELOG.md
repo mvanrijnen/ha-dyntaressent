@@ -5,6 +5,14 @@ Alle noemenswaardige wijzigingen aan dit project worden hier vastgelegd.
 Het formaat is gebaseerd op [Keep a Changelog](https://keepachangelog.com/nl/1.1.0/),
 en dit project volgt [Semantic Versioning](https://semver.org/lang/nl/).
 
+## [1.4.0] - 2026-08-17
+
+### Fixed
+- **Gasprijs volgt nu de gasdag (06:00–06:00)** in plaats van het letterlijke klokuur.
+  Gas is een dagprijs die om 06:00 verspringt; tussen 00:00 en 06:00 toonden de
+  gas-sensoren nog de prijs van de vórige gasdag, waardoor ze afweken van essent.nl.
+  Nu komen de gas-sensoren overeen met de website. Elektra blijft per uur.
+
 ## [1.3.0] - 2026-08-17
 
 ### Changed
