@@ -139,7 +139,7 @@ class EssentPriceSensor(EssentEntity, SensorEntity):
 
     entity_description: EssentSensorDescription
     _attr_state_class = SensorStateClass.MEASUREMENT
-    _attr_suggested_display_precision = 4
+    _attr_suggested_display_precision = 5
 
     def __init__(
         self,
@@ -219,7 +219,7 @@ _FEEDIN_SENSORS: tuple[EssentFeedInSensorDescription, ...] = (
         key="feedin_compensation_now",
         name="terugleververgoeding nu",
         icon="mdi:transmission-tower-export",
-        suggested_display_precision=4,
+        suggested_display_precision=5,
         compute=_feedin_compensation,
         with_attrs=True,
     ),
@@ -227,14 +227,14 @@ _FEEDIN_SENSORS: tuple[EssentFeedInSensorDescription, ...] = (
         key="feedin_cost_now",
         name="terugleverkosten nu",
         icon="mdi:cash-minus",
-        suggested_display_precision=4,
+        suggested_display_precision=5,
         compute=_feedin_cost_now,
     ),
     EssentFeedInSensorDescription(
         key="feedin_cost_next_hour",
         name="terugleverkosten volgend uur",
         icon="mdi:cash-minus",
-        suggested_display_precision=4,
+        suggested_display_precision=5,
         compute=_feedin_cost_next,
     ),
     EssentFeedInSensorDescription(

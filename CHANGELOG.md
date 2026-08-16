@@ -5,6 +5,13 @@ Alle noemenswaardige wijzigingen aan dit project worden hier vastgelegd.
 Het formaat is gebaseerd op [Keep a Changelog](https://keepachangelog.com/nl/1.1.0/),
 en dit project volgt [Semantic Versioning](https://semver.org/lang/nl/).
 
+## [1.4.2] - 2026-08-17
+
+### Changed
+- Prijs-sensoren (stroom én gas, all-in en beurs, plus de teruglever-bedragen) tonen nu
+  standaard **5 decimalen** in plaats van 4, zodat de weergave exact met essent.nl
+  overeenkomt (bijv. `1.52305` i.p.v. `1.5231`). De onderliggende waarde was al 5 decimalen.
+
 ## [1.4.1] - 2026-08-17
 
 ### Fixed
