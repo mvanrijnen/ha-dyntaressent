@@ -3,8 +3,6 @@
 [![Validate](https://github.com/mvanrijnen/ha-dyntaressent/actions/workflows/validate.yml/badge.svg)](https://github.com/mvanrijnen/ha-dyntaressent/actions/workflows/validate.yml)
 [![hacs](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 
-[![Open in HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=mvanrijnen&repository=ha-dyntaressent&category=integration)
-
 Home Assistant integratie die de dynamische energietarieven van
 [Essent](https://www.essent.nl/dynamische-tarieven) als sensoren publiceert.
 **Geen account, login of API-sleutel nodig.**
