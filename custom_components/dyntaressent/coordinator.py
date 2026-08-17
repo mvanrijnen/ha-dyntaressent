@@ -115,7 +115,7 @@ class EssentDataUpdateCoordinator(DataUpdateCoordinator[EssentData]):
             name=DOMAIN,
             # Ophalen wordt door __init__.py aangestuurd (opstart, elk heel uur,
             # en extra pogingen in de middag). Dit interval is enkel een vangnet.
-            update_interval=timedelta(hours=1),
+            update_interval=None,
         )
         self._session = async_get_clientsession(hass)
 

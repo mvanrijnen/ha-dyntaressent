@@ -1,7 +1,9 @@
 {
   "domain": "dyntaressent",
   "name": "DynTarEssent",
-  "codeowners": ["@mvanrijnen"],
+  "codeowners": [
+    "@mvanrijnen"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/mvanrijnen/ha-dyntaressent",
   "integration_type": "service",
@@ -9,5 +11,5 @@
   "issue_tracker": "https://github.com/mvanrijnen/ha-dyntaressent/issues",
   "requirements": [],
   "single_config_entry": true,
-  "version": "1.4.2"
+  "version": "1.5.0"
 }

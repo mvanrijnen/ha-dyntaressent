@@ -24,23 +24,29 @@ async def async_setup_entry(hass: HomeAssistant, entry: EssentConfigEntry) -> bo
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
     @callback
-    def _scheduled_refresh(_now) -> None:
+    def _fetch(_now=None) -> None:
+        """Data daadwerkelijk (opnieuw) ophalen."""
         entry.async_create_background_task(
-            hass, coordinator.async_request_refresh(), "dyntaressent_refresh"
+            hass, coordinator.async_request_refresh(), "dyntaressent_fetch"
         )
 
-    # 2) Elk heel uur: zodat de "huidige prijs" netjes op het uur meerolt.
+    @callback
+    def _hourly(now) -> None:
+        """Elk heel uur. Na middernacht opnieuw ophalen (nieuwe dag → herbucketen);
+        de overige uren alleen de sensoren laten meerollen — zónder netwerk-call."""
+        if now.hour == 0:
+            _fetch()
+        else:
+            coordinator.async_update_listeners()
+
+    # 2) Elk heel uur meerollen (of om 00:00 opnieuw ophalen).
     entry.async_on_unload(
-        async_track_time_change(hass, _scheduled_refresh, minute=0, second=10)
+        async_track_time_change(hass, _hourly, minute=0, second=10)
     )
-    # 3) Extra pogingen in de middag tot de prijzen van morgen gepubliceerd zijn.
+    # 3) 's Middags extra ophalen tot de prijzen van morgen gepubliceerd zijn.
     entry.async_on_unload(
         async_track_time_change(
-            hass,
-            _scheduled_refresh,
-            hour=_AFTERNOON_RETRY_HOURS,
-            minute=30,
-            second=10,
+            hass, lambda now: _fetch(), hour=_AFTERNOON_RETRY_HOURS, minute=30, second=10
         )
     )
 

@@ -12,6 +12,15 @@ en dit project volgt [Semantic Versioning](https://semver.org/lang/nl/).
   standaard **5 decimalen** in plaats van 4, zodat de weergave exact met essent.nl
   overeenkomt (bijv. `1.52305` i.p.v. `1.5231`). De onderliggende waarde was al 5 decimalen.
 
+## [1.5.0] - 2026-08-17
+
+### Changed
+- **Zuiniger met de API.** De prijs-array wordt niet meer elk uur opgehaald, maar alleen
+  bij opstarten, kort na middernacht (nieuwe dag) en 's middags (13:30–16:30) tot de prijzen
+  van morgen binnen zijn. Elk heel uur rollen de sensoren nog steeds mee (huidige prijs, en
+  om 06:00 de gasprijs) — maar dan zónder netwerk-call, puur uit de cache. Van ~24+ naar
+  een handvol calls per dag.
+
 ## [1.4.1] - 2026-08-17
 
 ### Fixed
