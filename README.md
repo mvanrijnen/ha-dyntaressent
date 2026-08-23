@@ -1,6 +1,15 @@
+> [!IMPORTANT]
+> **Deze repository is gearchiveerd en wordt niet meer onderhouden.**
+>
+> DynTarEssent is opgevolgd door **[DynTarNL](https://github.com/mvanrijnen/ha-dyntarNL)** —
+> dezelfde integratie, maar voor meerdere Nederlandse energieleveranciers (waaronder Essent),
+> met stroom- én gastarieven, terugleververgoeding en een eigen-tarieven-optie.
+>
+> 👉 **Installeer voortaan [mvanrijnen/ha-dyntarNL](https://github.com/mvanrijnen/ha-dyntarNL)**
+> en verwijder deze integratie uit HACS.
+
 # DynTarEssent — Dynamische Tarieven Essent
 
-[![Validate](https://github.com/mvanrijnen/ha-dyntaressent/actions/workflows/validate.yml/badge.svg)](https://github.com/mvanrijnen/ha-dyntaressent/actions/workflows/validate.yml)
 [![hacs](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 
 Home Assistant integratie die de dynamische energietarieven van
